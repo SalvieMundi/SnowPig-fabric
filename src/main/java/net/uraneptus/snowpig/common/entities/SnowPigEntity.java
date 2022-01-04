@@ -32,7 +32,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.uraneptus.snowpig.SnowPig;
-import net.uraneptus.snowpig.core.ModIntegrations;
 import net.uraneptus.snowpig.core.registry.SnowPigSounds;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,11 +75,7 @@ public class SnowPigEntity extends AnimalEntity implements ItemSteerable, Saddle
     public static final Identifier FROZEN_HAM_LOOT = new Identifier(SnowPig.MOD_ID, "entities/mod_integration/frozen_ham_loot");
 
     public Identifier getLootTableId() {
-        if(ModIntegrations.isFDLoaded()) {
-            return FROZEN_HAM_LOOT;
-        } else {
-            return this.getType().getLootTableId();
-        }
+        return this.getType().getLootTableId();
     }
 
     @Override
